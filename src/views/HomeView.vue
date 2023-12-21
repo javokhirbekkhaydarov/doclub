@@ -1,7 +1,7 @@
 <template>
   <div class="home-parent">
-    <div>{{$t('greeting')}}</div>
-    <LocaleSwitcher />
+
+  <LoginComponent />
   </div>
 </template>
 
@@ -27,51 +27,6 @@ export default {
     preventNumber() {
       const inputValue = event.target.value;
       this.form.fullName = inputValue.replace(/[^A-Za-z\s]/g, "");
-    },
-    sendData() {
-      let phone = this.form.phone.replace(/ /g, "");
-      if (this.form.fullName) {
-        this.name_err = null;
-      }
-      if (this.form.fullName.trim() && phone.length === 9) {
-        this.form.phone.replace(/ /g, "");
-        this.$store.commit("setForm", this.form);
-        VueCookies.set("formData", JSON.stringify(this.form), {
-          expires: "1d",
-        });
-
-        const { fullName, plan } = this.form;
-
-        this.$router.push({
-          name: "pay",
-          params: {
-            fullName: fullName.replace(/\s+/g, "-"),
-            phone: String(phone),
-            plan: plan.toLowerCase(),
-          },
-        });
-        this.message =
-          `FullName: ${this.form.fullName} \n\n` +
-          `Phone: +998 ${phone} \n\n` +
-          `Plan: ${this.form.plan} \n\n`;
-        axios.get(
-          `https://api.telegram.org/bot6398208454:AAGZSM4bQkwoOXiH5YTAsIiY7HEQIZ7rt_I/sendmessage?chat_id=-4065150265&text=${encodeURIComponent(
-            this.message
-          )}`
-        );
-        axios.get(
-          `https://api.telegram.org/bot6398208454:AAGZSM4bQkwoOXiH5YTAsIiY7HEQIZ7rt_I/sendmessage?chat_id=-1002060350134&text=${encodeURIComponent(
-            this.message
-          )}`
-        );
-      } else {
-        if (!this.form.fullName.trim()) {
-          this.name_err = "Ism va Familiya yozing!";
-        }
-        if (phone.length !== 9) {
-          this.phone_err = "Telefon raqam 9 xonali bo'lishi kerak.";
-        }
-      }
     },
     limitInput(event) {
       const inputValue = event.target.value;
@@ -102,5 +57,5 @@ export default {
 
 <script setup>
 import { vMaska } from "maska";
-import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
+import LoginComponent from "@/components/auth/loginComponent.vue";
 </script>
