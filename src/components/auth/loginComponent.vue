@@ -59,6 +59,7 @@
                   v-model="code[index]"
                   @keyup="onInput(index, $event)"
                   maxlength="1"
+                  type="number"
                   v-maska
                   data-maska="#"
                   class="code-input"
@@ -69,8 +70,19 @@
                 <ButtonComponent
                   @click="sendData"
                   :name="getCodeText"
-                  :disabled="isDisabled"
+                  v-if="!isNewCode"
                 />
+                <button
+                  v-else
+                  class="btn"
+                  @click.prevent="sendData"
+                  :disabled="isDisabled"
+                >
+                  {{ $t("new_code")}}
+                  <span v-if="countdown"
+                    >{{ countdown }} {{ $t("seconds") }}.
+                  </span>
+                </button>
               </div>
             </div>
           </form>
@@ -130,13 +142,17 @@ const { t, locale } = useI18n();
 const sendCodeText = ref(t("send_code"));
 const getCodeText = ref(t("get_new_code"));
 const state = ref("phone");
+const isNewCode = ref(false);
+const countdown = ref(10);
+const initialCountdown = ref(10);
+const timerStarted = ref(false);
+const timerId = ref(0);
 
 const codeLength = 4; // Set the length of OTP code
 const code = Array.from({ length: codeLength }, () => "");
 const codeInputs = ref<HTMLInputElement[]>([]);
 
 const onInput = (index: number, event: KeyboardEvent) => {
-
   const { keyCode, key } = event;
 
   if (keyCode === 8) {
@@ -149,11 +165,13 @@ const onInput = (index: number, event: KeyboardEvent) => {
       code[index] = "";
     }
   } else if (!isNaN(parseInt(key)) && index < codeLength - 1) {
-    code[index] = event.key;
-    codeInputs.value[index + 1].focus();
-  } else if (isNaN(parseInt(key)) && index < codeLength - 1) {
     code[index] = key;
     codeInputs.value[index + 1]?.focus();
+  } else if (!isNaN(parseInt(key)) && index === codeLength - 1) {
+    code[index] = key;
+  }
+  if (code.join("").length === 4) {
+    console.log("input field");
   }
 };
 
@@ -174,7 +192,20 @@ const handleInput = () => {
   isDisabled.value = phone.length !== 10;
   isInputWritten.value = !!(form.value.phone && form.value.phone !== "");
 };
-
+const startCountDown = () => {
+  countdown.value = initialCountdown.value; // Reset countdown to initial value
+  timerStarted.value = true;
+  timerId.value = setInterval(() => {
+    if (countdown.value <= 0) {
+      clearInterval(timerId.value);
+      timerStarted.value = false;
+      isDisabled.value = false;
+      isNewCode.value =  false;
+    } else {
+      countdown.value--;
+    }
+  }, 1000);
+};
 watch(locale, () => {
   sendCodeText.value = t("send_code");
   getCodeText.value = t("get_new_code");
@@ -183,12 +214,17 @@ watch(locale, () => {
 //   send data
 const sendData = () => {
   if (state.value === "phone") {
+    // startCountDown();
+    // isDisabled.value = true;
     state.value = "get_code";
-    if (state.value === "get_code") {
-      setTimeout(() => {
-        codeInputs?.value[0]?.focus();
-      }, 100);
-    }
+  } else if (state.value === "get_code") {
+    isNewCode.value = true;
+    isDisabled.value = true;
+    console.log(isNewCode.value);
+    startCountDown();
+    setTimeout(() => {
+      codeInputs?.value[0]?.focus();
+    }, 100);
   }
 };
 </script>

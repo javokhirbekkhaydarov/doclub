@@ -6,4 +6,8 @@ export default {
     terms_title_text: "Hiermit stimme ich den",
     terms_title_link: "Bedingungen zur Verarbeitung meiner persönlichen Daten zu.",
     get_new_code: 'Einen neuen Code erhalten',
+    new_code: 'Neuer Code',
+    seconds: 'sekunden',
+
+
 };

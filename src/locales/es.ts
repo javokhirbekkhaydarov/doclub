@@ -6,4 +6,7 @@ export default {
   terms_title_text: "Por la presente, acepto los",
   terms_title_link: "Términos de procesamiento de mis datos personales.",
   get_new_code: "Obtener un nuevo código",
+  new_code: 'Nuevo código',
+  seconds: 'segundos',
+
 };
