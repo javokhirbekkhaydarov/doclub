@@ -59,15 +59,16 @@
                   v-model="code[index]"
                   @input="onInput(index, $event)"
                   maxlength="1"
-                  type="number"
+                  type="text"
+                  @keypress="allowOnlyNumbers"
                   :class="{
                     'code-input': true,
                     is_check_error: InputField,
                   }"
                 />
               </div>
-              <!--              v-maska-->
-              <!--              data-maska="#"-->
+              <!--                            v-maska-->
+              <!--                            data-maska="#"-->
               <div class="login-button">
                 <ButtonComponent
                   @click="sendData"
@@ -175,17 +176,12 @@ const codeInputs = ref<HTMLInputElement[]>([]);
 //   }
 //   InputField.value = code.join("").length === 4;
 // };
+
 const verifyCode = () => {
   InputField.value = code.join("").length === 4;
 };
 const onInput = (index: number, event: InputEvent) => {
-  if (code.join("").length === 4) {
-    verifyCode();
-  }  else {
-    verifyCode();
-
-  }
-
+  verifyCode();
   if (event.data !== null) {
     if (index < codeLength - 1) {
       codeInputs.value[index + 1].focus();
@@ -194,6 +190,12 @@ const onInput = (index: number, event: InputEvent) => {
     if (index > 0) {
       codeInputs.value[index - 1].focus();
     }
+  }
+};
+const allowOnlyNumbers = (event: KeyboardEvent) => {
+  const charCode = event.keyCode;
+  if (charCode < 48 || charCode > 57) {
+    event.preventDefault();
   }
 };
 const handleInput = () => {
