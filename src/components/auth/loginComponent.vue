@@ -14,29 +14,62 @@
             Medicine Club
           </div>
           <form action="#" class="form_parent">
-            <label for="phone" class="label_title">
-              {{ $t("phone_number") }}
-            </label>
-            <div
-              class="input_parent"
-              ref="phone_parent"
-              :class="{ active_border: isInputWritten }"
-            >
-              <div class="region_number">+971</div>
-              <img src="@/assets/icons/down.svg" alt="" />
-              <input
-                type="text"
-                ref="phone"
-                id="phone"
-                @input="handleInput"
-                class="input"
-                v-model="form.phone"
-                v-maska
-                data-maska="###-###-##-##"
-              />
+            <div v-if="state === 'phone'">
+              <label for="phone" class="label_title">
+                {{ $t("phone_number") }}
+              </label>
+              <div
+                class="input_parent"
+                ref="phone_parent"
+                :class="{ active_border: isInputWritten }"
+              >
+                <div class="region_number">+971</div>
+                <img src="@/assets/icons/down.svg" alt="" />
+                <input
+                  type="text"
+                  ref="phone"
+                  id="phone"
+                  @input="handleInput"
+                  class="input"
+                  v-model="form.phone"
+                  v-maska
+                  data-maska="###-###-##-##"
+                />
+              </div>
+              <div class="login-button">
+                <ButtonComponent
+                  @click="sendData"
+                  :name="sendCodeText"
+                  :disabled="isDisabled"
+                />
+              </div>
             </div>
-            <div class="login-button">
-              <ButtonComponent :name="sendCodeText" :disabled="isDisabled" />
+            <div v-else-if="state === 'get_code'">
+              <div class="get_code_heading d-flex">
+                <span class="label_title">The code was sent.</span>
+                <span @click="state = 'phone'" class="change_phone"
+                  >Change the number</span
+                >
+              </div>
+              <div class="otp-input">
+                <input
+                  v-for="(digit, index) in codeLength"
+                  :key="index"
+                  ref="codeInputs"
+                  v-model="code[index]"
+                  @input="onInput(index, $event)"
+                  maxlength="1"
+                  class="code-input"
+                />
+              </div>
+
+              <div class="login-button">
+                <ButtonComponent
+                  @click="sendData"
+                  :name="getCodeText"
+                  :disabled="isDisabled"
+                />
+              </div>
             </div>
           </form>
           <div class="terms_text">
@@ -78,37 +111,57 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
 import { ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import ButtonComponent from "@/components/mini_components/ButtonComponent.vue";
 import { vMaska } from "maska";
 const form = ref({
-  phone: null,
+  phone: '3241234123432',
 });
 const isInputWritten = ref(false);
 const isDisabled = ref(true);
 const { t, locale } = useI18n();
 const sendCodeText = ref(t("send_code"));
+const getCodeText = ref(t("get_new_code"));
+const state = ref("phone");
+
+const codeLength = 4; // Set the length of OTP code
+const code = Array.from({ length: codeLength }, () => "");
+const codeInputs = ref<HTMLInputElement[]>([]);
+
+
+const onInput = (index: number, event: InputEvent) => {
+  console.log(index);
+  if (event.data !== null) {
+    if (index < codeLength - 1) {
+      codeInputs.value[index + 1].focus();
+    }
+  } else {
+    if (index > 0) {
+      codeInputs.value[index - 1].focus();
+    }
+  }
+};
 
 const handleInput = () => {
   let phone = form.value.phone.replace(/-/g, "");
-  if (phone.length === 10) {
-    isDisabled.value = false;
-  } else {
-    isDisabled.value = true;
-  }
-  if (form.value.phone && form.value.phone !== "") {
-    isInputWritten.value = true;
-  } else {
-    isInputWritten.value = false;
-  }
+  isDisabled.value = phone.length !== 10;
+  isInputWritten.value = !!(form.value.phone && form.value.phone !== "");
 };
 
 watch(locale, () => {
   sendCodeText.value = t("send_code");
+  getCodeText.value = t("get_new_code");
 });
+
+//   send data
+const sendData = () => {
+  if (state.value === "phone") {
+    state.value = "get_code";
+  }
+};
 </script>
 
 <style scoped></style>

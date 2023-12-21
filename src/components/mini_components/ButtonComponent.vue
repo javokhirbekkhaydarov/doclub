@@ -1,5 +1,5 @@
 <template>
-  <button class="btn">
+  <button class="btn" type="button">
     {{ name }}
   </button>
 </template>
@@ -40,6 +40,6 @@ defineProps({
 }
 .btn:disabled {
   background: var(--Primary-200, #f1ecff);
-  color: var(--Primary-300, #D8D1FF);
+  color: var(--Primary-300, #d8d1ff);
 }
 </style>
