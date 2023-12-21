@@ -57,8 +57,10 @@
                   :key="index"
                   ref="codeInputs"
                   v-model="code[index]"
-                  @input="onInput(index, $event)"
+                  @keyup="onInput(index, $event)"
                   maxlength="1"
+                  v-maska
+                  data-maska="#"
                   class="code-input"
                 />
               </div>
@@ -113,12 +115,14 @@
 
 <script setup lang="ts">
 import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
+
 import { ref, watch } from "vue";
+
 import { useI18n } from "vue-i18n";
 import ButtonComponent from "@/components/mini_components/ButtonComponent.vue";
 import { vMaska } from "maska";
 const form = ref({
-  phone: '3241234123432',
+  phone: "3241234123432",
 });
 const isInputWritten = ref(false);
 const isDisabled = ref(true);
@@ -131,20 +135,40 @@ const codeLength = 4; // Set the length of OTP code
 const code = Array.from({ length: codeLength }, () => "");
 const codeInputs = ref<HTMLInputElement[]>([]);
 
+const onInput = (index: number, event: KeyboardEvent) => {
 
-const onInput = (index: number, event: InputEvent) => {
-  console.log(index);
-  if (event.data !== null) {
-    if (index < codeLength - 1) {
-      codeInputs.value[index + 1].focus();
+  const { keyCode, key } = event;
+
+  if (keyCode === 8) {
+    if (code[index] === "") {
+      if (index > 0) {
+        codeInputs.value[index - 1].focus();
+        code[index - 1] = "";
+      }
+    } else {
+      code[index] = "";
     }
-  } else {
-    if (index > 0) {
-      codeInputs.value[index - 1].focus();
-    }
+  } else if (!isNaN(parseInt(key)) && index < codeLength - 1) {
+    code[index] = event.key;
+    codeInputs.value[index + 1].focus();
+  } else if (isNaN(parseInt(key)) && index < codeLength - 1) {
+    code[index] = key;
+    codeInputs.value[index + 1]?.focus();
   }
 };
 
+// const onInput = (index: number, event: InputEvent) => {
+//   console.log(code.join(""));
+//   if (event.data !== null) {
+//     if (index < codeLength - 1) {
+//       codeInputs.value[index + 1].focus();
+//     }
+//   } else {
+//     if (index > 0) {
+//       codeInputs.value[index - 1].focus();
+//     }
+//   }
+// };
 const handleInput = () => {
   let phone = form.value.phone.replace(/-/g, "");
   isDisabled.value = phone.length !== 10;
@@ -160,6 +184,11 @@ watch(locale, () => {
 const sendData = () => {
   if (state.value === "phone") {
     state.value = "get_code";
+    if (state.value === "get_code") {
+      setTimeout(() => {
+        codeInputs?.value[0]?.focus();
+      }, 100);
+    }
   }
 };
 </script>
