@@ -9,6 +9,7 @@ import de from "./locales/de";
 import "@/assets/styles/global.css"
 const i18n = createI18n({
   locale: "en",
+  legacy:false,
   fallbackLocale: "en",
   messages: {
     en,

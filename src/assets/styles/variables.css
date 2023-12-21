@@ -6,6 +6,9 @@
   --Text-500: #413663;
   --Neutral-400: #c8c8e3;
   --Gray-100: #fff;
+  --Primary-200: #f1ecff;
+  --Primary-300: #d8d1ff;
+  --Text-300: #968fa9;
 }
 
 .main_color {
@@ -114,4 +117,10 @@
 
 .d-none {
   display: none;
+}
+.mr-24 {
+  margin-right: 24px;
+}
+.m-0  {
+  margin: 0 !important;
 }
