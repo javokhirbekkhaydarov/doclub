@@ -10,6 +10,11 @@
   --Primary-300: #d8d1ff;
   --Text-300: #968fa9;
   --Danger-700: #c51311;
+  --Danger-500: #ea6361;
+  --Danger-100: #ffebeb;
+  --Success-100: #e7ffe7;
+  --Success-500: #7ec07d;
+  --Success-700: #4c964b;
 }
 
 .main_color {

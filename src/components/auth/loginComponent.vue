@@ -57,15 +57,17 @@
                   :key="index"
                   ref="codeInputs"
                   v-model="code[index]"
-                  @keyup="onInput(index, $event)"
+                  @input="onInput(index, $event)"
                   maxlength="1"
                   type="number"
-                  v-maska
-                  data-maska="#"
-                  class="code-input"
+                  :class="{
+                    'code-input': true,
+                    is_check_error: InputField,
+                  }"
                 />
               </div>
-
+              <!--              v-maska-->
+              <!--              data-maska="#"-->
               <div class="login-button">
                 <ButtonComponent
                   @click="sendData"
@@ -78,7 +80,7 @@
                   @click.prevent="sendData"
                   :disabled="isDisabled"
                 >
-                  {{ $t("new_code")}}
+                  {{ $t("new_code") }}
                   <span v-if="countdown"
                     >{{ countdown }} {{ $t("seconds") }}.
                   </span>
@@ -127,9 +129,7 @@
 
 <script setup lang="ts">
 import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
-
 import { ref, watch } from "vue";
-
 import { useI18n } from "vue-i18n";
 import ButtonComponent from "@/components/mini_components/ButtonComponent.vue";
 import { vMaska } from "maska";
@@ -147,46 +147,55 @@ const countdown = ref(10);
 const initialCountdown = ref(10);
 const timerStarted = ref(false);
 const timerId = ref(0);
+const InputField = ref(false);
 
 const codeLength = 4; // Set the length of OTP code
 const code = Array.from({ length: codeLength }, () => "");
 const codeInputs = ref<HTMLInputElement[]>([]);
 
-const onInput = (index: number, event: KeyboardEvent) => {
-  const { keyCode, key } = event;
-
-  if (keyCode === 8) {
-    if (code[index] === "") {
-      if (index > 0) {
-        codeInputs.value[index - 1].focus();
-        code[index - 1] = "";
-      }
-    } else {
-      code[index] = "";
-    }
-  } else if (!isNaN(parseInt(key)) && index < codeLength - 1) {
-    code[index] = key;
-    codeInputs.value[index + 1]?.focus();
-  } else if (!isNaN(parseInt(key)) && index === codeLength - 1) {
-    code[index] = key;
-  }
+// const onInput = (index: number, event: KeyboardEvent) => {
+//   const { keyCode, key } = event;
+//
+//   if (keyCode === 8) {
+//     if (code[index] === "") {
+//       if (index > 0) {
+//         codeInputs.value[index - 1].focus();
+//         code[index - 1] = "";
+//       }
+//     } else {
+//       code[index] = "";
+//     }
+//   } else if (!isNaN(parseInt(key)) && index < codeLength - 1) {
+//     code[index] = key;
+//     codeInputs.value[index + 1]?.focus();
+//   } else if (!isNaN(parseInt(key)) && index === codeLength - 1) {
+//     code[index] = key;
+//     codeInputs.value[index - 1]?.focus();
+//
+//   }
+//   InputField.value = code.join("").length === 4;
+// };
+const verifyCode = () => {
+  InputField.value = code.join("").length === 4;
+};
+const onInput = (index: number, event: InputEvent) => {
   if (code.join("").length === 4) {
-    console.log("input field");
+    verifyCode();
+  }  else {
+    verifyCode();
+
+  }
+
+  if (event.data !== null) {
+    if (index < codeLength - 1) {
+      codeInputs.value[index + 1].focus();
+    }
+  } else {
+    if (index > 0) {
+      codeInputs.value[index - 1].focus();
+    }
   }
 };
-
-// const onInput = (index: number, event: InputEvent) => {
-//   console.log(code.join(""));
-//   if (event.data !== null) {
-//     if (index < codeLength - 1) {
-//       codeInputs.value[index + 1].focus();
-//     }
-//   } else {
-//     if (index > 0) {
-//       codeInputs.value[index - 1].focus();
-//     }
-//   }
-// };
 const handleInput = () => {
   let phone = form.value.phone.replace(/-/g, "");
   isDisabled.value = phone.length !== 10;
@@ -200,16 +209,12 @@ const startCountDown = () => {
       clearInterval(timerId.value);
       timerStarted.value = false;
       isDisabled.value = false;
-      isNewCode.value =  false;
+      isNewCode.value = false;
     } else {
       countdown.value--;
     }
   }, 1000);
 };
-watch(locale, () => {
-  sendCodeText.value = t("send_code");
-  getCodeText.value = t("get_new_code");
-});
 
 //   send data
 const sendData = () => {
@@ -227,6 +232,11 @@ const sendData = () => {
     }, 100);
   }
 };
+
+watch(locale, () => {
+  sendCodeText.value = t("send_code");
+  getCodeText.value = t("get_new_code");
+});
 </script>
 
 <style scoped></style>

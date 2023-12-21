@@ -194,11 +194,24 @@
   justify-content: center;
   text-align: center;
   color: var(--black);
-outline: none;
+  outline: none;
   /* Captions/Cap2 - Regular */
   font-family: Open-Sans, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 125% */
+}
+
+.is_check_error {
+  border-radius: 12px;
+  border: 1px solid var(--Danger-500, #ea6361);
+  background: var(--Danger-100, #ffebeb);
+  color: var(--Danger-700);
+}
+.is_check_true {
+  border-radius: 12px;
+  border: 1px solid var(--Success-500);
+  background: var(--Success-100);
+  color: var(--Success-700);
 }
