@@ -1,52 +1,7 @@
 <template>
   <div class="home-parent">
-
-    <form action="#" class="mt-4">
-      <div class="mb-3">
-        <label for="fullName" class="form-label input-title"
-        >Ism-familiyangiz</label
-        >
-        <input
-            type="text"
-            class="login-input form-control"
-            id="fullName"
-            @input="preventNumber"
-            placeholder=""
-            v-model="form.fullName"
-            required
-        />
-        <span class="err-msg" v-if="name_err"> {{ name_err }}</span>
-      </div>
-      <div class="col-12 mt-sm-4 mt-2">
-        <label for="phone" class="form-label input-title"
-        >Telefon raqamingiz</label
-        >
-        <div class="login-input d-flex align-items-center form-control">
-          <span>+998</span>
-          <input
-              v-model="form.phone"
-              class="inside-input"
-              type="text"
-              v-maska
-              data-maska="## ### ## ##"
-              required
-          />
-        </div>
-        <span class="err-msg" v-if="phone_err"> {{ phone_err }}</span>
-      </div>
-      <label for="plan" class="form-label mt-4 input-title"
-      >Tarif tanlash</label
-      >
-
-      <button
-          type="submit"
-          @click.prevent="sendData"
-          class="btn w-100 p-3 my-btn mt-4"
-          style="background: red !important"
-      >
-        davom etish
-      </button>
-    </form>
+    <div>{{$t('greeting')}}</div>
+    <LocaleSwitcher />
   </div>
 </template>
 
@@ -147,4 +102,5 @@ export default {
 
 <script setup>
 import { vMaska } from "maska";
+import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
 </script>

@@ -11,13 +11,14 @@
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
     "core-js": "^3.8.3",
+    "maska": "^2.1.10",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
     "vue-cookies": "^1.8.3",
+    "vue-i18n": "^9.8.0",
     "vue-router": "^4.0.3",
-    "maska": "^2.1.10",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
