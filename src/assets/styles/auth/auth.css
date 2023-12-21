@@ -215,3 +215,24 @@
   background: var(--Success-100);
   color: var(--Success-700);
 }
+
+.invalid_code {
+  margin-top: 32px;
+  color: var(--Danger-600, #da3f3d);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* Captions/Cap2 - Regular */
+  font-family: Open-Sans, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+}
+.invalid_code span {
+  font-family: Open-Sans, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+}

@@ -4,13 +4,15 @@
   --primary: #7646ff;
   --Text-400: #78708f;
   --Text-500: #413663;
+  --Neutral-100: #f9f9fb;
   --Neutral-400: #c8c8e3;
   --Gray-100: #fff;
   --Primary-200: #f1ecff;
   --Primary-300: #d8d1ff;
   --Text-300: #968fa9;
-  --Danger-700: #c51311;
   --Danger-500: #ea6361;
+  --Danger-600: #da3f3d;
+  --Danger-700: #c51311;
   --Danger-100: #ffebeb;
   --Success-100: #e7ffe7;
   --Success-500: #7ec07d;
@@ -104,10 +106,6 @@
   width: 100% !important;
 }
 
-.text-gray {
-  color: var(--text_gray);
-}
-
 .relative {
   position: relative;
 }
@@ -129,4 +127,11 @@
 }
 .m-0 {
   margin: 0 !important;
+}
+.mt-8 {
+  margin-top: 8px;
+}
+
+.ml-8 {
+  margin-left: 8px;
 }

@@ -86,6 +86,16 @@
                     >{{ countdown }} {{ $t("seconds") }}.
                   </span>
                 </button>
+                <ButtonComponent
+                  v-if="isShowError"
+                  class="mt-8 neutral_btn"
+                  :name="code_didnt_come"
+                />
+
+                <div class="invalid_code" v-if="isShowError">
+                  <img src="@/assets/icons/error.svg" alt="" />
+                  <span class="ml-8"> {{ $t("invalid_code") }}</span>
+                </div>
               </div>
             </div>
           </form>
@@ -142,6 +152,7 @@ const isDisabled = ref(true);
 const { t, locale } = useI18n();
 const sendCodeText = ref(t("send_code"));
 const getCodeText = ref(t("get_new_code"));
+const code_didnt_come = ref(t("code_didnt_come"));
 const state = ref("phone");
 const isNewCode = ref(false);
 const countdown = ref(10);
@@ -149,6 +160,7 @@ const initialCountdown = ref(10);
 const timerStarted = ref(false);
 const timerId = ref(0);
 const InputField = ref(false);
+const isShowError = ref(false);
 
 const codeLength = 4; // Set the length of OTP code
 const code = Array.from({ length: codeLength }, () => "");
@@ -178,6 +190,7 @@ const codeInputs = ref<HTMLInputElement[]>([]);
 // };
 
 const verifyCode = () => {
+  isShowError.value = code.join("").length === 4;
   InputField.value = code.join("").length === 4;
 };
 const onInput = (index: number, event: InputEvent) => {

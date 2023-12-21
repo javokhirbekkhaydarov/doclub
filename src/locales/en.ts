@@ -8,4 +8,6 @@ export default {
   get_new_code: 'Get a new code',
   new_code: 'New code in',
   seconds: 'seconds',
+  code_didnt_come:"Code did not come",
+  invalid_code: "Invalid code",
 };
