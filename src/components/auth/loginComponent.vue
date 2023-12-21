@@ -89,6 +89,7 @@
                 <ButtonComponent
                   v-if="isShowError"
                   class="mt-8 neutral_btn"
+                  @click="openModal"
                   :name="code_didnt_come"
                 />
 
@@ -135,15 +136,19 @@
         />
       </div>
     </div>
+    {{ show }}
+    <ModalComponent />
   </div>
 </template>
 
 <script setup lang="ts">
 import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
-import { ref, watch } from "vue";
+import { ref, watch , computed  } from "vue";
 import { useI18n } from "vue-i18n";
 import ButtonComponent from "@/components/mini_components/ButtonComponent.vue";
 import { vMaska } from "maska";
+import store from "@/store";
+import ModalComponent from "@/components/mini_components/ModalComponent.vue";
 const form = ref({
   phone: "3241234123432",
 });
@@ -161,7 +166,7 @@ const timerStarted = ref(false);
 const timerId = ref(0);
 const InputField = ref(false);
 const isShowError = ref(false);
-
+const show = computed(() => store.getters.show);
 const codeLength = 4; // Set the length of OTP code
 const code = Array.from({ length: codeLength }, () => "");
 const codeInputs = ref<HTMLInputElement[]>([]);
@@ -192,6 +197,9 @@ const codeInputs = ref<HTMLInputElement[]>([]);
 const verifyCode = () => {
   isShowError.value = code.join("").length === 4;
   InputField.value = code.join("").length === 4;
+};
+const openModal = () => {
+  store.commit("setShow", true);
 };
 const onInput = (index: number, event: InputEvent) => {
   verifyCode();
@@ -251,6 +259,7 @@ const sendData = () => {
 watch(locale, () => {
   sendCodeText.value = t("send_code");
   getCodeText.value = t("get_new_code");
+  code_didnt_come.value = t("code_didnt_come");
 });
 </script>
 
