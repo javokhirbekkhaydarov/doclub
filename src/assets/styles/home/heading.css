@@ -1,0 +1,33 @@
+.heading_page {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.heading_profile_section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+}
+.main_page_title   {
+    color: var(--Text-500, #413663);
+
+    /* Headers/H2 */
+    font-family: Ubuntu-Bold , sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 125% */
+}
+
+.profile_name {
+    color: var(--Text-500, #413663);
+    text-align: right;
+
+    /* Captions/Cap2 - Regular */
+    font-family: Open-Sans, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+}
