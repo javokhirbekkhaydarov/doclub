@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex">
+  <div class="d-flex w100 justify-content-start">
     <SidebarComponent />
     <router-view />
   </div>
