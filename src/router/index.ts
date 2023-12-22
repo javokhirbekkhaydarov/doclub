@@ -1,11 +1,31 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-
 const routes: Array<RouteRecordRaw> = [
+  {
+    path: "/auth",
+    component: () => import("@/components/auth/authPage.vue"),
+    children: [
+      {
+        path: "login",
+        name: "Login 1",
+        component: () => import("@/components/auth/loginComponent.vue"),
+        meta: {
+          title: "Login Page",
+        },
+      },
+    ],
+  },
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    redirect: "/dashboard",
+    component: () => import("@/components/body/BodyComponent.vue"),
+    children: [
+      {
+        path: "/dashboard",
+        name: "Dashboard",
+        component: () => import("@/views/HomeView.vue"),
+      },
+    ],
   },
   {
     path: "/:pathMatch(.*)*",
@@ -17,6 +37,9 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 
 export default router;

@@ -42,7 +42,7 @@
                     class="select_regions_heading d-flex justify-content-between w100"
                   >
                     <div class="cookie_heading_text">
-                      {{$t('select_region')}}
+                      {{ $t("select_region") }}
                     </div>
                     <img
                       alt="close"
@@ -59,7 +59,7 @@
                       @click="selectCountry(country)"
                       class="language-option"
                     >
-                      {{ country.name.split(' ')[0] }} (+{{ country.dialCode }})
+                      {{ country.name.split(" ")[0] }} (+{{ country.dialCode }})
                     </div>
                   </div>
                 </div>
@@ -74,10 +74,10 @@
             </div>
             <div v-else-if="state === 'get_code'">
               <div class="get_code_heading d-flex">
-                <span class="label_title">{{$t('code_sent')}}</span>
-                <span @click="state = 'phone'" class="change_phone"
-                  >{{$t('change_number')}}</span
-                >
+                <span class="label_title">{{ $t("code_sent") }}</span>
+                <span @click="state = 'phone'" class="change_phone">{{
+                  $t("change_number")
+                }}</span>
               </div>
               <div class="otp-input">
                 <input
@@ -92,6 +92,7 @@
                   :class="{
                     'code-input': true,
                     is_check_error: InputField,
+                    is_check_true: isShowSucess,
                   }"
                 />
               </div>
@@ -178,6 +179,7 @@ import ButtonComponent from "@/components/mini_components/ButtonComponent.vue";
 import { vMaska } from "maska";
 import store from "@/store";
 import ModalComponent from "@/components/mini_components/ModalComponent.vue";
+import {useRoute, useRouter} from "vue-router";
 const form = ref({
   phone: "",
 });
@@ -195,6 +197,7 @@ const timerStarted = ref(false);
 const timerId = ref(0);
 const InputField = ref(false);
 const isShowError = ref(false);
+const isShowSucess = ref(false);
 const show = computed(() => store.getters.show);
 const codeLength = 4; // Set the length of OTP code
 const code = Array.from({ length: codeLength }, () => "");
@@ -202,7 +205,7 @@ const codeInputs = ref<HTMLInputElement[]>([]);
 const selectedRegion = ref("+971");
 const showRegions = ref(false);
 const selectedRegionCountries = ref<HTMLInputElement[]>([]);
-
+const router  = useRouter()
 function toggleRegions() {
   showRegions.value = !showRegions.value;
 }
@@ -244,8 +247,16 @@ function selectCountry(country: { name: string; dialCode: string }) {
 // };
 
 const verifyCode = () => {
+  if (code.join("") === "2442") {
+
+    setTimeout(() => {
+    router.push(`/`);
+    }, 200)
+    isShowSucess.value = true
+  } else {
   isShowError.value = code.join("").length === 4;
   InputField.value = code.join("").length === 4;
+  }
 };
 const openModal = () => {
   store.commit("setShow", true);

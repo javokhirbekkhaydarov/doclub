@@ -1,5 +1,5 @@
 <template>
-  <div style="min-height: 100vh" class="home d-flex justify-content-center align-items-center">
+  <div style="min-height: 100vh" class=" bg-black home d-flex justify-content-center align-items-center flex-column center">
     <h1
       class="my-5 text-3xl font-semibold text-center text-green-900"
       style="
@@ -8,13 +8,13 @@
         -webkit-text-fill-color: transparent;
       "
     >
-      Sahifa topilmadi!
+      Page not found
     </h1>
     <router-link
       to="/"
       class="text-decoration-none text-white border p-2 rounded-5"
     >
-      Asosiy sahifa</router-link
+    go home</router-link
     >
   </div>
 </template>

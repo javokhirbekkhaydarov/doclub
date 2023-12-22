@@ -1,7 +1,7 @@
 <template>
   <div class="home-parent">
-    <LoginComponent />
-    <CookiesComponent />
+    Main page
+    Giselle Saint Claire
   </div>
 </template>
 
