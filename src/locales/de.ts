@@ -13,6 +13,8 @@ export default {
   invalid_code: "Ungültiger Code",
   what_should: "Was soll ich tun, wenn der Code nicht ankommt?",
   modal_text_1: "1. Möglicherweise hast du die falsche Nummer eingegeben oder einen Fehler bei der Nummer gemacht. Überprüfe alles noch einmal.",
-  modal_text_2: "2. Das Problem könnte beim Mobilfunkanbieter liegen. Kontaktiere den Kundensupport."
+  modal_text_2: "2. Das Problem könnte beim Mobilfunkanbieter liegen. Kontaktiere den Kundensupport.",
+  we_use_cookie: "🍪 Wir verwenden Cookies",
+  cookies_text: "Cookies helfen uns, die beste Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmst du der Verwendung von Cookies zu."
 
 };

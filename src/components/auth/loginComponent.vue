@@ -136,7 +136,7 @@
         />
       </div>
     </div>
-    {{ show }}
+
     <ModalComponent />
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="home-parent">
-
-  <LoginComponent />
+    <LoginComponent />
+    <CookiesComponent />
   </div>
 </template>
 
@@ -58,4 +58,5 @@ export default {
 <script setup>
 import { vMaska } from "maska";
 import LoginComponent from "@/components/auth/loginComponent.vue";
+import CookiesComponent from "@/components/mini_components/CookiesComponent.vue";
 </script>
