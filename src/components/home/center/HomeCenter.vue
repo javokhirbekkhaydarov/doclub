@@ -2,16 +2,18 @@
   <div class="home_center">
     <StoriesComponent />
     <NavigationComponent />
+    <ModelsComponent />
   </div>
 </template>
 
 <script>
 import StoriesComponent from "@/components/home/center/StoriesComponent.vue";
 import NavigationComponent from "@/components/home/center/NavigationComponent.vue";
+import ModelsComponent from "@/components/home/center/ModelsComponent.vue";
 
 export default {
   name: "HomeCenter",
-  components: { NavigationComponent, StoriesComponent },
+  components: { ModelsComponent, NavigationComponent, StoriesComponent },
 };
 </script>
 

@@ -96,7 +96,7 @@
 }
 
 .navigation_card_description {
-  color: var(--Text-400, #78708F);
+  color: var(--Text-400, #78708f);
 
   /* Small/Description Regular */
   font-family: Open-Sans, sans-serif;
@@ -114,4 +114,88 @@
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 114.286% */
+}
+
+/* -------------------------model --------------------*/
+.model_cards {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+}
+.model_card {
+  display: flex;
+  height: 196px;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 16px;
+  border: 1px solid var(--Neutral-300, #e5e5f8);
+}
+
+.model_heading {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.active_model,
+.inactive_model {
+  display: flex;
+  padding: 6px 10px;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--primary, #7646ff);
+  border-radius: 12px;
+  background: var(--Primary-200, #f1ecff);
+  /* Small/Description Regular Caps */
+  font-family: Open-Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
+  text-transform: uppercase;
+}
+
+.inactive_model {
+  color: var(--Neutral-500, #9d9dbb);
+  background: var(--Neutral-200, #f4f4f9);
+}
+
+.model_card_description {
+  color: var(--Text-500, #413663);
+
+  /* Headers/H5 */
+  font-family: Ubuntu-Medium, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+}
+
+.model_card_bottom {
+  display: flex;
+  padding-top: 20px;
+  align-items: center;
+  align-content: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  flex-wrap: wrap;
+
+}
+.model_card_bottom div {
+  color: var(--Text-300, #968fa9);
+  text-align: center;
+
+  /* Captions/Cap2 - Regular */
+  font-family: Open-Sans, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
 }
