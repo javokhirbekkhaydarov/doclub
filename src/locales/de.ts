@@ -11,4 +11,8 @@ export default {
   seconds: "sekunden",
   code_didnt_come: "Der Code ist nicht angekommen",
   invalid_code: "Ungültiger Code",
+  what_should: "Was soll ich tun, wenn der Code nicht ankommt?",
+  modal_text_1: "1. Möglicherweise hast du die falsche Nummer eingegeben oder einen Fehler bei der Nummer gemacht. Überprüfe alles noch einmal.",
+  modal_text_2: "2. Das Problem könnte beim Mobilfunkanbieter liegen. Kontaktiere den Kundensupport."
+
 };

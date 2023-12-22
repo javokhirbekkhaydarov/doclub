@@ -2,7 +2,7 @@
   <n-modal v-model:show="show" transform-origin="center" style="margin: auto">
     <n-card
       style="width: 100%; max-width: 770px; min-width: 350px;"
-      title=" What should I do if the code doesn't arrive?"
+      :title="$t('what_should')"
       :bordered="false"
       size="huge"
       role="dialog"
@@ -15,11 +15,11 @@
 
       </template>
     <div class="modal_content">
-    1.  You may have entered the wrong number or made a mistake in the number. Check everything again.
+      {{$t('modal_text_1')}}
       <br>
 
     <span style="margin-top: 8px; display: flex">
-        2. The problem may be on the part of your mobile operator. Contact customer support.
+             {{$t('modal_text_2')}}
 
     </span>
     </div>

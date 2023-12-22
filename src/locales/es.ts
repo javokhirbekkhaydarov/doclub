@@ -9,6 +9,9 @@ export default {
   new_code: "Nuevo código",
   seconds: "segundos",
   code_didnt_come: "El código no llegó",
-  invalid_code: "Código no válido"
+  invalid_code: "Código no válido",
+  what_should: "¿Qué debo hacer si el código no llega?",
+  modal_text_1: "1. Es posible que hayas ingresado el número incorrecto o cometido un error en el número. Verifica todo nuevamente.",
+  modal_text_2: "2. El problema puede estar en tu operador móvil. Contacta con el servicio de atención al cliente."
 
 };
