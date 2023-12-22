@@ -15,6 +15,7 @@ export default {
   modal_text_1: "1. Möglicherweise hast du die falsche Nummer eingegeben oder einen Fehler bei der Nummer gemacht. Überprüfe alles noch einmal.",
   modal_text_2: "2. Das Problem könnte beim Mobilfunkanbieter liegen. Kontaktiere den Kundensupport.",
   we_use_cookie: "🍪 Wir verwenden Cookies",
-  cookies_text: "Cookies helfen uns, die beste Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmst du der Verwendung von Cookies zu."
+  cookies_text: "Cookies helfen uns, die beste Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmst du der Verwendung von Cookies zu.",
+  select_lang: "🏳️ Wähle eine Sprache aus"
 
 };

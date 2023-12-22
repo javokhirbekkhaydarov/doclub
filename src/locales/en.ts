@@ -16,4 +16,5 @@ export default {
   modal_text_2: "2.  The problem may be on the part of your mobile operator. Contact customer support.",
   we_use_cookie: "🍪 We use cookies",
   cookies_text: "Cookies help us deliver the best experience on our website. By using our website, you agree to the use of cookies.",
+  select_lang: "🏳️  Select a language"
 };

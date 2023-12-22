@@ -14,6 +14,8 @@ export default {
   modal_text_1: "1. Es posible que hayas ingresado el número incorrecto o cometido un error en el número. Verifica todo nuevamente.",
   modal_text_2: "2. El problema puede estar en tu operador móvil. Contacta con el servicio de atención al cliente.",
   we_use_cookie: "🍪 Usamos cookies",
-  cookies_text: "Las cookies nos ayudan a brindar la mejor experiencia en nuestro sitio web. Al utilizar nuestro sitio web, aceptas el uso de cookies."
+  cookies_text: "Las cookies nos ayudan a brindar la mejor experiencia en nuestro sitio web. Al utilizar nuestro sitio web, aceptas el uso de cookies.",
+  select_lang: "🏳️ Selecciona un idioma"
+
 
 };

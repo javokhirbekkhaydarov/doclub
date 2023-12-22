@@ -135,3 +135,7 @@
 .ml-8 {
   margin-left: 8px;
 }
+
+.flex-end {
+  justify-content: flex-end;
+}
