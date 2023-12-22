@@ -15,7 +15,10 @@ export default {
   modal_text_2: "2. El problema puede estar en tu operador móvil. Contacta con el servicio de atención al cliente.",
   we_use_cookie: "🍪 Usamos cookies",
   cookies_text: "Las cookies nos ayudan a brindar la mejor experiencia en nuestro sitio web. Al utilizar nuestro sitio web, aceptas el uso de cookies.",
-  select_lang: "🏳️ Selecciona un idioma"
+  select_lang: "🏳️ Selecciona un idioma",
+  code_sent: "El código fue enviado.",
+  change_number: "Cambiar el número",
+  select_region: " ☎️ Selecciona una región",
 
 
 };
