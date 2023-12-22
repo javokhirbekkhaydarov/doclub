@@ -1,15 +1,47 @@
 <template>
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi delectus dicta, enim et illo modi molestias velit! Ab error eum, eveniet iure laudantium, nesciunt odio officia quibusdam quod saepe totam!
+  <div class="sidebar_parent">
+    <div class="sidebar_heading">
+      <div class="sidebar_logo">
+        <img src="@/assets/icons/sidebar_logo.svg" alt="" />
+      </div>
+      <div class="sidebar_menu">
+        <div
+          class="menu_items d-flex flex-column"
+          v-for="item in menu"
+          :key="item"
+        >
+          <div class="menu_item">{{ item.title }}</div>
+          <div
+            v-for="element in item.submenu"
+            :key="element.path"
+            class="menu_links"
+            :class="{ active_sidebar_bg: isActiveBg(element.path) }"
+          >
+            {{ element.name }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar_bottom">
+      <LocaleSwitcher class="d-flex justify-content-start" />
+      <div class="d-flex flex-column justify-content-start mt-4 sidebar_texts">
+        <span class="m-0">Company Label place</span>
+        <span class="m-0 sidebar_bottom_text"> Personal data protection </span>
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: "SidebarComponent"
-}
+<script setup lang="ts">
+import menu from "@/static/menu";
+import { useRoute } from "vue-router";
+import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
+
+const route = useRoute();
+
+const isActiveBg = (path: string): boolean => {
+  return path === route.path;
+};
 </script>
 
-<style scoped>
-
-</style>
+<style></style>

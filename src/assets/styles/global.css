@@ -1,6 +1,7 @@
 @import "@/assets/styles/fonts.css";
 @import "@/assets/styles/variables.css";
 @import "@/assets/styles/auth/auth.css";
+@import "@/assets/styles/sidebar/sidebar.css";
 * {
   margin: 0;
   padding: 0;
