@@ -42,14 +42,15 @@
   font-weight: 400;
   text-decoration: none;
   line-height: 24px; /* 133.333% */
+  transition: all .2s linear;
 }
 
 .active_sidebar_bg {
+  padding: 8px 16px 8px;
   border-radius: 12px;
   background: var(--Primary-200, #f1ecff);
   color: var(--primary, #7646ff);
   display: flex;
-  padding: 8px 16px 8px;
   align-items: flex-start;
   gap: 10px;
   /* Captions/Cap1 - Regular */

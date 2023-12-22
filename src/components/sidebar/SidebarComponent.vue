@@ -11,14 +11,17 @@
           :key="item"
         >
           <div class="menu_item">{{ item.title }}</div>
-          <div
+          <router-link
+
             v-for="element in item.submenu"
             :key="element.path"
+            :to="element.path"
+
             class="menu_links"
             :class="{ active_sidebar_bg: isActiveBg(element.path) }"
           >
             {{ element.name }}
-          </div>
+          </router-link>
         </div>
       </div>
     </div>

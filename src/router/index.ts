@@ -25,6 +25,12 @@ const routes: Array<RouteRecordRaw> = [
         name: "Dashboard",
         component: () => import("@/views/HomeView.vue"),
       },
+      {
+        path: "/education",
+        name: "education",
+        component: () =>
+          import("@/components/education/EducationComponent.vue"),
+      },
     ],
   },
   {
