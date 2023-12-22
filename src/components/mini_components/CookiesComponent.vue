@@ -73,4 +73,12 @@ const closeCookie = () => {
   font-weight: 400;
   line-height: 16px; /* 114.286% */
 }
+@media screen and (max-width: 992px) {
+
+.cookie_parent {
+  left: 32px;
+  bottom: 32px;
+  width: 326px;
+}
+}
 </style>

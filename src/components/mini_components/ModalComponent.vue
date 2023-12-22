@@ -87,4 +87,18 @@ const closeModal = () => {
   font-weight: 400;
   line-height: 20px; /* 125% */
 }
+
+@media screen and (max-width: 992px) {
+  .n-card {
+    height: 100vh;
+    padding: 47px 32px;
+    border-radius: 0;
+  }
+  .n-card > .n-card-header {
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+    align-items: flex-start !important;
+  }
+}
 </style>

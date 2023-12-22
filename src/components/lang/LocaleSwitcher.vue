@@ -150,4 +150,15 @@ const toggleCard = () => {
   fill: var(--primary) !important;
   color: var(--primary);
 }
+@media screen and (max-width: 992px) {
+
+  .lang_card {
+    margin-top: 10px;
+    width: 326px;
+  }
+  .select_regions {
+    width: 326px !important;
+
+  }
+}
 </style>

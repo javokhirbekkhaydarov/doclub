@@ -267,3 +267,45 @@
   background: var(--Neutral-200);
 
 }
+
+
+@media screen and (max-width: 992px) {
+  .auth_parent {
+    display: flex;
+    justify-content: center;
+
+  }
+  .auth_right_side {
+    display: none;
+  }
+  .auth_left_side {
+    display: flex;
+    padding: 47px 31px 32px 32px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 233px;
+  }
+  .auth_bottom_texts span {
+    font-size: 14px;
+  }
+  .current_lang {
+color: var(--primary);
+  }
+  .otp-input {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    width: 326px;
+  }
+  .code-input {
+    display: flex;
+    width: 69.5px;
+    height: 44px;
+    padding: 12px 16px;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+  }
+}
