@@ -4,6 +4,7 @@
 @import "@/assets/styles/sidebar/sidebar.css";
 @import "@/assets/styles/home/mainPage.css";
 @import "@/assets/styles/home/heading.css";
+@import "@/assets/styles/home/center.css";
 * {
   margin: 0;
   padding: 0;

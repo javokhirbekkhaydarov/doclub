@@ -1,7 +1,7 @@
 <template>
   <div class="main_page">
     <HeadingComponent />
-    <div class="d-flex">
+    <div class="main_content">
       <HomeCenter />
       <HomeRight />
     </div>
@@ -10,8 +10,8 @@
 
 <script>
 import HeadingComponent from "@/components/home/HeadingComponent.vue";
-import HomeCenter from "@/components/home/HomeCenter.vue";
-import HomeRight from "@/components/home/HomeRight.vue";
+import HomeCenter from "@/components/home/center/HomeCenter.vue";
+import HomeRight from "@/components/home/right/HomeRight.vue";
 
 export default {
   name: "MainPage",
