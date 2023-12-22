@@ -12,8 +12,8 @@
   grid-template-columns: auto auto;
   /*display: flex;*/
   /*justify-content: space-between;*/
-  width: 1470px;
+  max-width: 1470px;
 
-  /*width: 100%;*/
+  width: 100%;
   gap: 32px;
 }

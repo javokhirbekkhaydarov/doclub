@@ -6,6 +6,7 @@
 @import "@/assets/styles/home/heading.css";
 @import "@/assets/styles/home/center.css";
 @import "@/assets/styles/home/your_page.css";
+@import "@/assets/styles/home/recommended.css";
 * {
   margin: 0;
   padding: 0;
@@ -22,4 +23,12 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--Text-300);
+  border-radius: 15px;
 }
