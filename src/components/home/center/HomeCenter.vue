@@ -3,6 +3,7 @@
     <StoriesComponent />
     <NavigationComponent />
     <ModelsComponent />
+    <YourPage />
   </div>
 </template>
 
@@ -10,10 +11,11 @@
 import StoriesComponent from "@/components/home/center/StoriesComponent.vue";
 import NavigationComponent from "@/components/home/center/NavigationComponent.vue";
 import ModelsComponent from "@/components/home/center/ModelsComponent.vue";
+import YourPage from "@/components/home/center/YourPage.vue";
 
 export default {
   name: "HomeCenter",
-  components: { ModelsComponent, NavigationComponent, StoriesComponent },
+  components: {YourPage, ModelsComponent, NavigationComponent, StoriesComponent },
 };
 </script>
 

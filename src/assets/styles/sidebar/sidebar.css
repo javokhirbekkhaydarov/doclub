@@ -9,7 +9,9 @@
   align-self: stretch;
   background: var(--Neutral-100, #F9F9FB);
   height: 100vh;
-  position: relative;
+  position: sticky;
+  bottom: 0;
+  top: 0;
 }
 .menu_items {
   display: flex;

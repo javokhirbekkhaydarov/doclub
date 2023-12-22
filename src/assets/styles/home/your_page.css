@@ -1,0 +1,64 @@
+.your_page_parent {
+  display: flex;
+  padding: 16px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.your_page_card {
+  display: flex;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+  align-self: stretch;
+  border-radius: 16px;
+  border: 1px solid var(--Neutral-300, #e5e5f8);
+}
+
+.your_page_card_heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+}
+.your_page_card_heading .ava {
+  height: 60px;
+  width: 60px;
+}
+
+.page_edit {
+  cursor: pointer;
+  fill: var(--primary);
+}
+.user_data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+}
+.user_full_name {
+  color: var(--Text-500, #413663);
+
+  /* Headers/H5 */
+  font-family: Ubuntu-Medium, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+}
+.user_location {
+  color: var(--Text-400, #78708f);
+
+  /* Small/Description Regular */
+  font-family: Open-Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
+}
