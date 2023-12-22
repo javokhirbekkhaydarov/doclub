@@ -5,6 +5,7 @@
   --Text-400: #78708f;
   --Text-500: #413663;
   --Neutral-100: #f9f9fb;
+  --Neutral-200: #F4F4F9;
   --Neutral-400: #c8c8e3;
   --Gray-100: #fff;
   --Primary-200: #f1ecff;
@@ -107,7 +108,7 @@
 }
 
 .relative {
-  position: relative;
+  position: relative !important;
 }
 .justify-content-between {
   justify-content: space-between;

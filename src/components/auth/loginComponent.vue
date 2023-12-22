@@ -13,17 +13,19 @@
             Evidence-based <br />
             Medicine Club
           </div>
-          <form action="#" class="form_parent">
-            <div v-if="state === 'phone'">
+          <form action="#" class="form_parent position-relative">
+            <div v-if="state === 'phone'" class="relative">
               <label for="phone" class="label_title">
                 {{ $t("phone_number") }}
               </label>
               <div
-                class="input_parent"
+                class="input_parent position-relative"
                 ref="phone_parent"
                 :class="{ active_border: isInputWritten }"
               >
-                <div class="region_number">+971</div>
+                <div class="region_number" @click="toggleRegions">
+                  {{ selectedRegion }}
+                </div>
                 <img src="@/assets/icons/down.svg" alt="" />
                 <input
                   type="text"
@@ -35,6 +37,32 @@
                   v-maska
                   data-maska="###-###-##-##"
                 />
+                <div class="select_regions" v-if="showRegions">
+                  <div
+                    class="select_regions_heading d-flex justify-content-between w100"
+                  >
+                    <div class="cookie_heading_text">
+                      ☎️ Select a region
+                    </div>
+                    <img
+                      alt="close"
+                      src="@/assets/img/x.svg"
+                      class="pointer"
+                      style="width: 24px"
+                      @click="toggleRegions"
+                    />
+                  </div>
+                  <div class="regions">
+                    <div
+                      v-for="country in allCountries"
+                      :key="country.code"
+                      @click="selectCountry(country)"
+                      class="language-option"
+                    >
+                      {{ country.name }} ({{ country.dialCode }})
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="login-button">
                 <ButtonComponent
@@ -142,15 +170,16 @@
 </template>
 
 <script setup lang="ts">
+import allCountries from "@/static/countries";
 import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
-import { ref, watch , computed  } from "vue";
+import { ref, watch, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import ButtonComponent from "@/components/mini_components/ButtonComponent.vue";
 import { vMaska } from "maska";
 import store from "@/store";
 import ModalComponent from "@/components/mini_components/ModalComponent.vue";
 const form = ref({
-  phone: "3241234123432",
+  phone: "",
 });
 const isInputWritten = ref(false);
 const isDisabled = ref(true);
@@ -170,7 +199,27 @@ const show = computed(() => store.getters.show);
 const codeLength = 4; // Set the length of OTP code
 const code = Array.from({ length: codeLength }, () => "");
 const codeInputs = ref<HTMLInputElement[]>([]);
+const selectedRegion = ref("+971");
+const showRegions = ref(false);
+const selectedRegionCountries = ref<HTMLInputElement[]>([]);
 
+function toggleRegions() {
+  showRegions.value = !showRegions.value;
+}
+function selectCountry(country: { name: string; dialCode: string }) {
+  selectedRegion.value = `+${country.dialCode}`;
+  showRegions.value = false;
+  form.value.phone = ""; // Clear the input field value if needed
+}
+
+// Filter countries based on the selected region code
+// function filterCountriesByRegion(regionCode:string) {
+//   selectedRegionCountries.value = allCountries.filter(
+//     (country) => country.dialCode === regionCode.replace("+", "")
+//   );
+// }
+//
+// filterCountriesByRegion(selectedRegion.value);
 // const onInput = (index: number, event: KeyboardEvent) => {
 //   const { keyCode, key } = event;
 //

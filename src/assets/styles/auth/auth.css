@@ -236,3 +236,34 @@
   font-weight: 400;
   line-height: 20px; /* 125% */
 }
+
+.select_regions {
+  position: absolute;
+  top: 59%;
+  left: 0;
+  border-radius: 12px;
+  background: #fff;
+  flex-direction: column;
+  /* Modals */
+  box-shadow: 0px 0px 15px 0px rgba(153, 153, 153, 0.2);
+  display: flex;
+  width: 370px;
+  padding: 16px 16px 16px 20px;
+  align-items: flex-start;
+  gap: 8px;
+}
+.regions {
+  height: 200px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 16px 0;
+}
+.regions::-webkit-scrollbar {
+  width: 4px;
+  background: var(--white);
+}
+.regions::-webkit-scrollbar-thumb {
+  background: var(--Neutral-200);
+
+}

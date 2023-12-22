@@ -7,6 +7,7 @@ import en from "./locales/en";
 import es from "./locales/es";
 import de from "./locales/de";
 import "@/assets/styles/global.css"
+
 const i18n = createI18n({
   locale: "en",
   legacy:false,
@@ -16,10 +17,12 @@ const i18n = createI18n({
     es,
     de,
   },
+
 });
 
 const app = createApp(App);
 app.use(store);
 app.use(router);
 app.use(i18n);
+
 app.mount("#app");

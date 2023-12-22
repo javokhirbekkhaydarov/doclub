@@ -19,10 +19,12 @@
     "vue-cookies": "^1.8.3",
     "vue-i18n": "^9.8.0",
     "vue-router": "^4.0.3",
+    "vue-tel-input": "^8.3.1",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
     "@types/vue": "^2.0.0",
+    "@types/vue-tel-input": "^2.1.6",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
