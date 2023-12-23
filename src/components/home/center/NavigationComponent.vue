@@ -1,6 +1,6 @@
 <template>
   <div class="navigation_section">
-    <div class="center_title">Navigation</div>
+    <div class="center_title">{{ $t("navigation") }}</div>
     <div class="navigation_cards">
       <div class="navigation_card" v-for="item in data" :key="item">
         <img :src="item.image" alt="" />
@@ -13,7 +13,7 @@
         <div
           class="navigation_card_bottom d-flex justify-content-between align-items-center center w100"
         >
-          <div>Open</div>
+          <div>{{ $t("open") }}</div>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,24 +34,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-const data = ref([
-  {
-    image: "/images/navigation1.png",
-    title: "Education",
-    description: "All modules",
-  },
-  {
-    image: "/images/navigation2.png",
-    title: "Events",
-    description: "Coming events",
-  },
-  {
-    image: "/images/navigation3.png",
-    title: "Media",
-    description: "Coming events",
-  },
-]);
+import { useI18n } from "vue-i18n";
+import { ref, watch } from "vue";
+
+const { t, locale } = useI18n();
+const data = ref([]);
+
+const updateData = () => {
+  data.value = [
+    {
+      image: "/images/navigation1.png",
+      title: t("education"),
+      description: t("all_modules"),
+    },
+    {
+      image: "/images/navigation2.png",
+      title: t("media"),
+      description: t("coming_events"),
+    },
+    {
+      image: "/images/navigation3.png",
+      title: t("media"),
+      description: t("event_notes"),
+    },
+  ];
+};
+
+watch(locale, () => {
+  updateData();
+});
+updateData(); // Initialize data when the component is mounted
 </script>
 
 <style scoped></style>

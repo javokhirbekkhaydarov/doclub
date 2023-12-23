@@ -29,6 +29,7 @@ export default {
   all_modules: "Todos los módulos",
   open: "Abrir",
   events: "Eventos",
+  event_notes: "Notas del evento",
   coming_events: "Próximos eventos",
   media: "Medios",
   your_models: "Tus módulos",

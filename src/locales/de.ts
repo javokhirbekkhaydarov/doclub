@@ -32,6 +32,7 @@ export default {
   education: "Bildung",
   all_modules: "Alle Module",
   open: "Öffnen",
+  event_notes: "Veranstaltungsnotizen",
   events: "Veranstaltungen",
   coming_events: "Bevorstehende Veranstaltungen",
   media: "Medien",

@@ -1,6 +1,6 @@
 <template>
   <div class="stories_section">
-    <div class="center_title">Stories</div>
+    <div class="center_title">{{ $t('stories') }}</div>
     <div class="stories_images">
       <div class="stories_image"  v-for="image in images" :key="image">
       <img :src="image.url" alt="" />

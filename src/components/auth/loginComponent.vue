@@ -179,7 +179,7 @@ import ButtonComponent from "@/components/mini_components/ButtonComponent.vue";
 import { vMaska } from "maska";
 import store from "@/store";
 import ModalComponent from "@/components/mini_components/ModalComponent.vue";
-import {useRoute, useRouter} from "vue-router";
+import { useRouter} from "vue-router";
 const form = ref({
   phone: "",
 });
