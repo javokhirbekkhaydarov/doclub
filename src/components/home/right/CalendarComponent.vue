@@ -17,6 +17,7 @@ const date = ref(new Date());
 <style>
 .dp__menu_inner {
   border: 0;
+  padding: 0;
 }
 .dp__month_year_row {
   margin-bottom: 32px;
@@ -34,6 +35,7 @@ const date = ref(new Date());
 .custom-calendar .dp__calendar {
   background: var(--white);
   border-radius: 12px;
+  overflow: hidden;
   border: 1px solid var(--Neutral-300, #e5e5f8);
 }
 .dp__calendar .dp__calendar {
@@ -51,7 +53,7 @@ const date = ref(new Date());
 }
 .dp__calendar_item {
   border-right: 1px solid var(--Neutral-300, #e5e5f8);
-  border-bottom: 1px solid var(--Neutral-300, #e5e5f8);
+  border-top: 1px solid var(--Neutral-300, #e5e5f8);
   width: 58px;
   height: 72px;
 

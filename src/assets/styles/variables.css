@@ -23,6 +23,7 @@
   --Success-700: #4c964b;
   --dp-primary-color: #7646ff;
   --Primary-100:#F9F8FF;
+  --event-description: #9F98B3;
 }
 .dp__theme_light {
   --dp-primary-color: #7646ff !important;

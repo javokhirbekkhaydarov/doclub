@@ -1,15 +1,17 @@
 <template>
   <div class="right_section">
 <CalendarComponent />
+    <EventsComponent />
   </div>
 </template>
 
 <script>
 import CalendarComponent from "@/components/home/right/CalendarComponent.vue";
+import EventsComponent from "@/components/home/right/EventsComponent.vue";
 
 export default {
   name: "HomeRight",
-  components: {CalendarComponent},
+  components: {EventsComponent, CalendarComponent},
 };
 </script>
 
