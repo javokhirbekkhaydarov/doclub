@@ -32,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div class="active_sidebar_toggle" v-if="show_menu" @click="openMenu"></div>
+  <div class="toggle_menu_back" :class="show_menu ? 'active_sidebar_toggle' : null"  @click="openMenu"></div>
 </template>
 
 <script setup lang="ts">

@@ -105,7 +105,14 @@
     width: 80% !important;
   }
 
+
+  .toggle_menu_back {
+    transform: translateX(-100%);
+    transition: all .1s linear;
+  }
   .active_sidebar_toggle {
+    transform: translateX(0);
+
     position: fixed;
     width: 20% !important;
     right: 0;
