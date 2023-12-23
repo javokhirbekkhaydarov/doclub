@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { RouteLocationNormalized, NavigationGuardNext } from "vue-router";
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/auth",
@@ -47,5 +49,24 @@ const router = createRouter({
     return { top: 0 };
   },
 });
+
+router.beforeEach(
+    (
+        to: RouteLocationNormalized,
+        from: RouteLocationNormalized,
+        next: NavigationGuardNext
+    ) => {
+      const isLogin = localStorage.getItem("isLogin");
+
+      if (to.path === "/auth/login" && isLogin === 'true') {
+        next("/dashboard");
+      } else if (to.path === "/dashboard" && isLogin !== 'true') {
+        next("/auth/login");
+      } else {
+        next(); // Continue to the requested route
+      }
+    }
+);
+
 
 export default router;

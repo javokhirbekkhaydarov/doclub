@@ -171,6 +171,7 @@
 </template>
 
 <script setup lang="ts">
+import VueCookies from "vue-cookies";
 import allCountries from "@/static/countries";
 import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
 import { ref, watch, computed } from "vue";
@@ -179,7 +180,7 @@ import ButtonComponent from "@/components/mini_components/ButtonComponent.vue";
 import { vMaska } from "maska";
 import store from "@/store";
 import ModalComponent from "@/components/mini_components/ModalComponent.vue";
-import { useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 const form = ref({
   phone: "",
 });
@@ -205,7 +206,7 @@ const codeInputs = ref<HTMLInputElement[]>([]);
 const selectedRegion = ref("+971");
 const showRegions = ref(false);
 const selectedRegionCountries = ref<HTMLInputElement[]>([]);
-const router  = useRouter()
+const router = useRouter();
 function toggleRegions() {
   showRegions.value = !showRegions.value;
 }
@@ -248,14 +249,18 @@ function selectCountry(country: { name: string; dialCode: string }) {
 
 const verifyCode = () => {
   if (code.join("") === "2442") {
+    // const expiryDate = new Date();
+    // expiryDate.setDate(expiryDate.getDate() + 1);
 
+    localStorage.setItem("isLogin", 'true');
     setTimeout(() => {
-    router.push(`/`);
-    }, 200)
-    isShowSucess.value = true
+      router.push(`/`);
+    }, 200);
+
+    isShowSucess.value = true;
   } else {
-  isShowError.value = code.join("").length === 4;
-  InputField.value = code.join("").length === 4;
+    isShowError.value = code.join("").length === 4;
+    InputField.value = code.join("").length === 4;
   }
 };
 const openModal = () => {

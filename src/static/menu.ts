@@ -50,7 +50,7 @@ const menu: MenuItem[] = [
       },
       {
         name: "Exit",
-        path: "/exit",
+        path: "/auth/login",
       },
     ],
   },
