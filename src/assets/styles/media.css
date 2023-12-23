@@ -47,7 +47,9 @@
   }
   .mobile_page_title {
     color: var(--Text-500, #413663);
-
+  display: flex;
+    padding-left: 32px;
+    margin-top: 20px;
     /* Headers/H2 */
     font-family: Ubuntu-Bold, sans-serif;
     font-size: 32px;
@@ -93,5 +95,26 @@
 
   .recommended_page_body {
     flex-direction: column;
+  }
+  .navigation_cards {
+    display: flex;
+    flex-direction: column;
+  }
+  .navigation_card {
+    width: 100%;
+  }
+  .model_card {
+    gap: 20px;
+  }
+  .model_card_bottom {
+    padding: 0;
+  }
+  .your_page_card {
+    padding-right: 22px;
+  }
+  .news_image img {
+    height: 235px;
+    width: 100%;
+    object-fit: cover;
   }
 }
