@@ -1,0 +1,97 @@
+.mobile-heading {
+  display: none;
+}
+.mobile_page_title {
+  display: none;
+}
+@media screen and (max-width: 992px) {
+  .heading_page,
+  .navigation_section,
+  .your_page_parent,
+  .recommended_page , .main_content .right_section {
+    padding-right: 32px;
+      padding-left: 32px;
+  }
+    .stories_section {
+        padding-left: 32px;
+    }
+
+  .mobile-heading {
+    display: flex;
+  }
+  .parent_layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .main_content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar_parent {
+    display: none;
+  }
+  .your_page_content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main_page {
+    padding: 20px 0 100px 0;
+  }
+  .main_page_title {
+    display: none;
+  }
+  .profile_name {
+    display: none;
+  }
+  .mobile_page_title {
+    color: var(--Text-500, #413663);
+
+    /* Headers/H2 */
+    font-family: Ubuntu-Bold, sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 125% */
+  }
+  .model_cards {
+    flex-direction: column;
+  }
+  .main_content .right_section {
+    width: 100% !important;
+  }
+  .page_input_parent {
+    width: 138px;
+  }
+
+  .stories_section {
+    width: 100%;
+    overflow: hidden;
+  }
+  .stories_section::-webkit-scrollbar {
+    width: 2px !important;
+  }
+  .stories_images {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Keep images in a single row */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    flex-wrap: nowrap;
+    position: sticky;
+    z-index: 3;
+  }
+
+  .stories_image {
+    flex: 0 0 auto; /* Ensure images don't wrap */
+    z-index: 4;
+    /*margin-right: 16px; !* Add spacing between images *!*/
+  }
+
+  .stories_image:last-child {
+    margin-right: 0; /* Remove right margin for the last image */
+  }
+
+  .recommended_page_body {
+    flex-direction: column;
+  }
+}

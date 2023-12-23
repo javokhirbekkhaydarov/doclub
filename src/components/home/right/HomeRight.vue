@@ -26,6 +26,6 @@ export default {
   flex: 1 0 0;
   border-radius: 16px;
   background: var(--Neutral-100, #f9f9fb);
-  width: 470px !important;
+  width: 470px ;
 }
 </style>
