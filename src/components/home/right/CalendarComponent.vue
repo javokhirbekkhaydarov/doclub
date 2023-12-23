@@ -174,4 +174,16 @@ store.commit("setDate", formattedDate);
   display: flex;
   justify-content: flex-start;
 }
+
+@media screen and (max-width: 992px) {
+  .dp__calendar_header_item  , .dp__calendar_item{
+    width: 46px;
+    height: 52px;
+  }
+  .dp__cell_inner , .dp__calendar_header_item{
+    font-size: 16px;
+  }.dp__month_year_row {
+     margin-bottom: 20px;
+   }
+}
 </style>
