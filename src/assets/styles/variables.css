@@ -21,8 +21,12 @@
   --Success-100: #e7ffe7;
   --Success-500: #7ec07d;
   --Success-700: #4c964b;
+  --dp-primary-color: #7646ff;
+  --Primary-100:#F9F8FF;
 }
-
+.dp__theme_light {
+  --dp-primary-color: #7646ff !important;
+}
 .main_color {
   color: var(--primary);
 }
