@@ -18,3 +18,8 @@
   width: 100%;
   gap: 32px;
 }
+@media screen and (max-width: 992px) {
+  .parent_layout {
+    min-height: 100vh;
+  }
+}

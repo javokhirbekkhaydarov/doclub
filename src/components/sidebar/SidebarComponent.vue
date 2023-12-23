@@ -32,6 +32,7 @@
       </div>
     </div>
   </div>
+  <div class="active_sidebar_toggle" v-if="show_menu" @click="openMenu"></div>
 </template>
 
 <script setup lang="ts">

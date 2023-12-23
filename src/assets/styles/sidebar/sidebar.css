@@ -101,4 +101,18 @@
     transform: translateX(0);
     opacity: 1;
   }
+  .active_menu {
+    width: 80% !important;
+  }
+
+  .active_sidebar_toggle {
+    position: fixed;
+    width: 20% !important;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    z-index: 15;
+  }
 }

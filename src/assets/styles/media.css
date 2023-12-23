@@ -83,7 +83,7 @@
 
   .stories_image {
     flex: 0 0 auto; /* Ensure images don't wrap */
-    margin-right: 16px; /* Add spacing between images */
+
   }
 
   .stories_image:last-child {
@@ -117,7 +117,7 @@
   .bottom_bar {
     display: flex !important;
     justify-content: space-between;
-    position: sticky;
+    position: fixed;
     bottom: 0;
     background: var(--white);
     left: 0;
