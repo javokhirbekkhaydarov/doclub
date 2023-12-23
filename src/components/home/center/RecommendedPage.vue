@@ -35,7 +35,14 @@ import { useI18n } from "vue-i18n";
 import { ref, watch } from "vue";
 
 const { t, locale } = useI18n();
-const news = ref([]);
+interface Item {
+  image: string;
+  title: string;
+  level: string;
+  description: string;
+  views: string;
+}
+const news = ref<Item[]>([]);
 
 const updateData = () => {
   news.value = [

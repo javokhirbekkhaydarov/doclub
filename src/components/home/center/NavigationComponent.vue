@@ -38,7 +38,12 @@ import { useI18n } from "vue-i18n";
 import { ref, watch } from "vue";
 
 const { t, locale } = useI18n();
-const data = ref([]);
+interface Item {
+  image: string;
+  title: string;
+  description: string;
+}
+const data = ref<Item[]>([]);
 
 const updateData = () => {
   data.value = [
@@ -63,6 +68,7 @@ const updateData = () => {
 watch(locale, () => {
   updateData();
 });
-updateData(); </script>
+updateData();
+</script>
 
 <style scoped></style>
