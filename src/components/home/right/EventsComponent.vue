@@ -36,7 +36,6 @@
       <div class="card_btn_white">View details</div>
 
     </div>
-    </div>
   </div>
 </template>
 
