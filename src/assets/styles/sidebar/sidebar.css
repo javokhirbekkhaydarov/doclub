@@ -7,7 +7,7 @@
   align-items: flex-start;
   flex-shrink: 0;
   align-self: stretch;
-  background: var(--Neutral-100, #F9F9FB);
+  background: var(--Neutral-100, #f9f9fb);
   height: 100vh;
   position: sticky;
   bottom: 0;
@@ -47,7 +47,7 @@
   font-weight: 400;
   text-decoration: none;
   line-height: 24px; /* 133.333% */
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 
 .active_sidebar_bg {
@@ -68,7 +68,7 @@
 }
 
 .sidebar_texts span {
-  color: var(--Text-300, #968FA9);
+  color: var(--Text-300, #968fa9);
 
   /* Captions/Cap2 - Regular */
   font-family: Open-Sans, sans-serif;
@@ -83,4 +83,22 @@
 .sidebar_bottom .lang_card {
   bottom: 150px;
   left: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .sidebar_parent {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 0.2s linear;
+    z-index: 11;
+    position: absolute;
+    height: 94vh;
+  }
+  .bottom_bar {
+    z-index: 12;
+  }
+  .active_menu {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

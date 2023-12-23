@@ -1,8 +1,7 @@
 <template>
   <div class="bottom_bar">
-
     <div class="bottom_links">
-      <div class="toggle">
+      <div class="toggle" @click="openMenu">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="36"
@@ -86,9 +85,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "MobileBottomBar",
+<script setup lang="ts">
+import store from "@/store";
+
+const openMenu = () => {
+  store.commit("setMenu");
 };
 </script>
 

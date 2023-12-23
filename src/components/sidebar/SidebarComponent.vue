@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar_parent">
+  <div class="sidebar_parent" :class="show_menu ? 'active_menu' : ''">
     <div class="sidebar_heading">
       <div class="sidebar_logo">
         <img src="@/assets/icons/sidebar_logo.svg" alt="" />
@@ -12,11 +12,10 @@
         >
           <div class="menu_item">{{ item.title }}</div>
           <router-link
-
+            @click="openMenu"
             v-for="element in item.submenu"
             :key="element.path"
             :to="element.path"
-
             class="menu_links"
             :class="{ active_sidebar_bg: isActiveBg(element.path) }"
           >
@@ -36,9 +35,24 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onUpdated } from "vue";
+
+const show_menu = computed(() => store.getters.show_menu);
+
 import menu from "@/static/menu";
 import { useRoute } from "vue-router";
 import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
+import store from "@/store";
+const openMenu = () => {
+  store.commit("setMenu");
+};
+onUpdated(() => {
+  if (show_menu.value) {
+    document.body.style.overflowY = "hidden";
+  } else {
+    document.body.style.overflowY = "visible";
+  }
+});
 
 const route = useRoute();
 
