@@ -32,7 +32,11 @@
       </div>
     </div>
   </div>
-  <div class="toggle_menu_back" :class="show_menu ? 'active_sidebar_toggle' : null"  @click="openMenu"></div>
+  <div
+    class="toggle_menu_back"
+    :class="show_menu ? 'active_sidebar_toggle' : null"
+    @click="openMenu"
+  ></div>
 </template>
 
 <script setup lang="ts">
@@ -48,11 +52,13 @@ const openMenu = () => {
   store.commit("setMenu");
 };
 onUpdated(() => {
-  if (show_menu.value) {
-    document.body.style.overflowY = "hidden";
-  } else {
-    document.body.style.overflowY = "visible";
-  }
+
+    if (show_menu.value) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "visible";
+    }
+
 });
 
 const route = useRoute();

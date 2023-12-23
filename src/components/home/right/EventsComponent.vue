@@ -1,8 +1,8 @@
 <template>
   <div class="events_page">
-    <div class="center_title">Events</div>
+    <div class="center_title">{{ $t("events") }}</div>
     <div class="events_section">
-      <div class="events_date"> {{ date }}</div>
+      <div class="events_date">{{ date }}</div>
     </div>
 
     <div class="events_card" v-for="event in events" :key="event">
@@ -21,7 +21,7 @@
         {{ event.description }}
       </div>
       <div class="events_duration">
-        {{date}}
+        {{ date }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -33,13 +33,13 @@
         </svg>
         {{ event.duration }}
       </div>
-      <div class="card_btn_white">View details</div>
+      <div class="card_btn_white">{{ $t("view_details") }}</div>
     </div>
   </div>
   <div class="events_page">
-    <div class="center_title">Coming events</div>
+    <div class="center_title">{{ $t("coming_events") }}</div>
     <div class="events_section">
-      <div class="events_date"> {{ date }}</div>
+      <div class="events_date">{{ date }}</div>
     </div>
 
     <div class="events_card" v-for="event in events" :key="event">
@@ -58,7 +58,7 @@
         {{ event.description }}
       </div>
       <div class="events_duration">
-        {{date}}
+        {{ date }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -74,7 +74,6 @@
     </div>
   </div>
   <div class="events_page">
-
     <div class="events_card" v-for="event in events" :key="event">
       <div class="model_heading d-flex">
         <div class="active_model">
@@ -85,13 +84,13 @@
         </div>
       </div>
       <div class="event_card_body">
-        How to improve the life prognosis of a comorbid patient?
+        {{ $t("events_description_2") }}
       </div>
       <div class="event_card_description">
         {{ event.description }}
       </div>
       <div class="events_duration">
-        {{date}}
+        {{ date }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -103,26 +102,41 @@
         </svg>
         {{ event.duration }}
       </div>
-      <div class="card_btn_white">View details</div>
+      <div class="card_btn_white">{{ $t("view") }}</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import store from "@/store";
+import { useI18n } from "vue-i18n";
+const { t, locale } = useI18n();
 const date = computed(() => store.getters.date);
-const events = ref([
-  {
-    type: "Offline",
-    topic: "Cardiology",
-    title:
-      "Patient with AF and diabetes mellitus. How to improve the life prognosis of a comorbid patient?",
-    description:
-      'Webinar: "Direct line with an expert". The influence of the modern nature of nutrition on cardiovascular complications: Russian accents of the section "Epidemiology and prevention"',
-    duration: "10:00 – 18:00",
-  },
-]);
+interface Item {
+  type: string;
+  title: string;
+  topic: string;
+  description: string;
+  duration: string;
+}
+const events = ref<Item[]>([]);
+const updateData = () => {
+  events.value = [
+    {
+      type: "Offline",
+      topic: "Cardiology",
+      title: t("events_title"),
+      description: t("events_description"),
+      duration: "10:00 – 18:00",
+    },
+  ];
+};
+
+watch(locale, () => {
+  updateData();
+});
+updateData();
 </script>
 
 <style scoped></style>
