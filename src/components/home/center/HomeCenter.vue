@@ -5,6 +5,7 @@
     <ModelsComponent />
     <YourPage />
     <RecommendedPage />
+    <LogOutModal />
   </div>
 </template>
 
@@ -14,10 +15,12 @@ import NavigationComponent from "@/components/home/center/NavigationComponent.vu
 import ModelsComponent from "@/components/home/center/ModelsComponent.vue";
 import YourPage from "@/components/home/center/YourPage.vue";
 import RecommendedPage from "@/components/home/center/RecommendedPage.vue";
+import LogOutModal from "@/components/mini_components/LogOutModal.vue";
 
 export default {
   name: "HomeCenter",
   components: {
+    LogOutModal,
     RecommendedPage,
     YourPage,
     ModelsComponent,

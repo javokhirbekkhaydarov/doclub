@@ -10,7 +10,6 @@ import "@/assets/styles/global.css";
 
 import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
-
 const i18n = createI18n({
   locale: "en",
   legacy: false,

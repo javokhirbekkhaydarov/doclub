@@ -1,5 +1,8 @@
 <template>
+  <div class="d-flex">
+
   <div class="sidebar_parent" :class="show_menu ? 'active_menu' : ''">
+
     <div class="sidebar_heading">
       <div class="sidebar_logo">
         <img src="@/assets/icons/sidebar_logo.svg" alt="" />
@@ -22,6 +25,7 @@
             {{ element.name }}
           </router-link>
         </div>
+        <div class="menu_links" @click="openAlert">Exit</div>
       </div>
     </div>
     <div class="sidebar_bottom">
@@ -37,10 +41,14 @@
     :class="show_menu ? 'active_sidebar_toggle' : null"
     @click="openMenu"
   ></div>
+
+  </div>
+
 </template>
 
 <script setup lang="ts">
-import { computed, onUpdated } from "vue";
+import { NModal, NCard } from "naive-ui";
+import { computed, ref,  onUpdated } from "vue";
 
 const show_menu = computed(() => store.getters.show_menu);
 
@@ -48,23 +56,27 @@ import menu from "@/static/menu";
 import { useRoute } from "vue-router";
 import LocaleSwitcher from "@/components/lang/LocaleSwitcher.vue";
 import store from "@/store";
+
+const open_popup = ref(false);
 const openMenu = () => {
   store.commit("setMenu");
 };
 onUpdated(() => {
-
-    if (show_menu.value) {
-      document.body.style.overflowY = "hidden";
-    } else {
-      document.body.style.overflowY = "visible";
-    }
-
+  if (show_menu.value) {
+    document.body.style.overflowY = "hidden";
+  } else {
+    document.body.style.overflowY = "visible";
+  }
 });
 
 const route = useRoute();
 
 const isActiveBg = (path: string): boolean => {
   return path === route.path;
+};
+
+const openAlert = () => {
+  store.commit("setPopup");
 };
 </script>
 

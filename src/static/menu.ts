@@ -48,10 +48,10 @@ const menu: MenuItem[] = [
         name: "Settings",
         path: "/settings",
       },
-      {
-        name: "Exit",
-        path: "/auth/login",
-      },
+      // {
+      //   name: "Exit",
+      //   path: "/auth/login",
+      // },
     ],
   },
 ];

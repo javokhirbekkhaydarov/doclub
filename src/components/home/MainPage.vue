@@ -5,6 +5,8 @@
       <HomeCenter />
       <HomeRight />
     </div>
+
+
   </div>
 </template>
 
@@ -12,6 +14,7 @@
 import HeadingComponent from "@/components/home/HeadingComponent.vue";
 import HomeCenter from "@/components/home/center/HomeCenter.vue";
 import HomeRight from "@/components/home/right/HomeRight.vue";
+
 
 export default {
   name: "MainPage",

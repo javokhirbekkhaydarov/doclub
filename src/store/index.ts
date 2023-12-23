@@ -6,6 +6,7 @@ export default createStore({
     show: false,
     date: "",
     show_menu: false,
+    show_popup: false,
   },
   getters: {
     show(state) {
@@ -17,6 +18,9 @@ export default createStore({
     date(state) {
       return state.date;
     },
+    popup(state) {
+      return state.show_popup;
+    },
   },
   mutations: {
     setShow(state) {
@@ -27,6 +31,9 @@ export default createStore({
     },
     setMenu(state) {
       state.show_menu = !state.show_menu;
+    },
+    setPopup(state) {
+      state.show_popup = !state.show_popup;
     },
   },
   actions: {},
