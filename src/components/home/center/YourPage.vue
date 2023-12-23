@@ -1,6 +1,6 @@
 <template>
   <div class="your_page_parent">
-    <div class="center_title">Your Page</div>
+    <div class="center_title">{{ $t("your_page") }}</div>
     <div class="your_page_content">
       <div class="your_page_cards">
         <div class="your_page_card">
@@ -13,8 +13,8 @@
             <img class="page_edit" src="@/assets/icons/edit.svg" alt="" />
           </div>
           <div class="your_page_card_body">
-            <div class="card_btn_primary">Open</div>
-            <div class="card_btn_white">Unpublish profile</div>
+            <div class="card_btn_primary">{{ $t("open") }}</div>
+            <div class="card_btn_white">{{ $t("unpublish_profile") }}</div>
           </div>
           <div class="your_page_card_link">Link to your profile</div>
           <div class="your_page_card_footer">
@@ -26,17 +26,16 @@
               />
               <img class="page_edit" src="@/assets/icons/edit.svg" alt="" />
             </div>
-            <div class="card_btn_white">Copy link</div>
+            <div class="card_btn_white">{{ $t("copy_link") }}</div>
           </div>
         </div>
         <div class="your_page_card">
           <div class="your_page_card_heading">
-            <div class="center_title">Referral link</div>
+            <div class="center_title">{{$t('referral_link')}}</div>
           </div>
 
           <div class="your_page_card_link">
-            Invite your colleagues and get bonuses to your bonus account for
-            their registration
+            {{$t('referral_text')}}
           </div>
           <div class="your_page_card_footer">
             <div class="page_input_parent">
@@ -47,7 +46,7 @@
               />
               <img class="page_edit" src="@/assets/icons/edit.svg" alt="" />
             </div>
-            <div class="card_btn_primary">Copy link</div>
+            <div class="card_btn_primary">{{ $t("copy_link") }}</div>
           </div>
         </div>
       </div>
@@ -57,9 +56,9 @@
             <div class="center_title">Rating</div>
           </div>
           <div class="your_page_card_buttons">
-            <button class="card_btn_white selected_your_card">Overall</button>
-            <button class="card_btn_white">Region</button>
-            <button class="card_btn_white">Specialization</button>
+            <button class="card_btn_white selected_your_card">{{ $t("overall") }}</button>
+            <button class="card_btn_white">{{ $t("region") }}</button>
+            <button class="card_btn_white">{{ $t("special") }}</button>
           </div>
 
           <div class="your_page_card_users">
@@ -79,7 +78,7 @@
           </div>
           <div class="your_page_card_footer">
 
-            <div class="card_btn_white">Open rating</div>
+            <div class="card_btn_white">{{ $t("open_rating") }}</div>
           </div>
         </div>
       </div>

@@ -63,7 +63,6 @@ const updateData = () => {
 watch(locale, () => {
   updateData();
 });
-updateData(); // Initialize data when the component is mounted
-</script>
+updateData(); </script>
 
 <style scoped></style>

@@ -3,8 +3,8 @@
     <div
       class="recommended_page_heading d-flex justify-content-between center w100"
     >
-      <div class="center_title">Recommended media</div>
-      <div class="read_more">Read more</div>
+      <div class="center_title">{{ $t("recommended_media") }}</div>
+      <div class="read_more">{{ $t("read_more") }}</div>
     </div>
     <div class="recommended_page_body">
       <div class="recommended_page_item" v-for="item in news" :key="item">
@@ -20,10 +20,10 @@
           </div>
         </div>
         <div class="news_description">
-          {{item.description}}
+          {{ item.description }}
         </div>
         <div class="news_viewers">
-          {{item.views}}
+          {{ item.views }}
         </div>
       </div>
     </div>
@@ -31,24 +31,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-const news = ref([
-  {
-    image: "/images/new1.png",
-    title: "news",
-    level: "beginners",
-    description:
-      "Inflammatory bowel disease and mental disorders found to be linked",
-    views: "Not viewed",
-  },
-  {
-    image: "/images/new2.png",
-    title: "news",
-    level: "beginners",
-    description: "Uzbekistan will strengthen its fight against tuberculosis",
-    views: "Not viewed",
-  },
-]);
+import { useI18n } from "vue-i18n";
+import { ref, watch } from "vue";
+
+const { t, locale } = useI18n();
+const news = ref([]);
+
+const updateData = () => {
+  news.value = [
+    {
+      image: "/images/new1.png",
+      title: t("news"),
+      level: t("level"),
+      description: t("recommended_description"),
+      views: t("view"),
+    },
+    {
+      image: "/images/new2.png",
+      title: t("news"),
+      level: t("level"),
+      description: t("recommended_description2"),
+      views: t("view"),
+    },
+  ];
+};
+
+watch(locale, () => {
+  updateData();
+});
+updateData();
 </script>
 
 <style scoped></style>
