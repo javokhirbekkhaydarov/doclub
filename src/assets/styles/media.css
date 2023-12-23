@@ -131,6 +131,9 @@
     right: 0;
     width: 100%;
     padding: 20px 32px 20px 32px;
+    box-shadow: 0 0 10px 3px rgba(52, 203, 236, 0.1);
+    border-top-right-radius: 32px;
+    border-top-left-radius: 32px;
   }
   .bottom_links {
     width: 100%;
@@ -144,5 +147,11 @@
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
+
+  }
+  .shadow_image path ,  .shadow_image g {
+    width: 100% !important;
+
   }
 }

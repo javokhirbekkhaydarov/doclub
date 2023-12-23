@@ -1,21 +1,6 @@
 <template>
   <div class="bottom_bar">
-    <svg class="shadow_image" xmlns="http://www.w3.org/2000/svg" width="390" height="100" viewBox="0 0 390 100" fill="none">
-      <g filter="url(#filter0_d_349_1392)">
-        <path d="M369 20C380.046 20 389 28.9543 389 40V100H0V40C0 28.9543 8.95431 20 20 20C136.333 20 252.667 20 369 20Z" fill="white"/>
-      </g>
-      <defs>
-        <filter id="filter0_d_349_1392" x="-20" y="0" width="429" height="120" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-          <feOffset/>
-          <feGaussianBlur stdDeviation="10"/>
-          <feColorMatrix type="matrix" values="0 0 0 0 0.78625 0 0 0 0 0.890312 0 0 0 0 0.925 0 0 0 0.5 0"/>
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_349_1392"/>
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_349_1392" result="shape"/>
-        </filter>
-      </defs>
-    </svg>
+
     <div class="bottom_links">
       <div class="toggle">
         <svg
