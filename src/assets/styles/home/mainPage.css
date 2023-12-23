@@ -11,7 +11,8 @@
   display: grid;
   grid-template-columns: auto auto;
   /*display: flex;*/
-  /*justify-content: space-between;*/
+  /*justify-content: flex-start;*/
+  flex-wrap: wrap;
   max-width: 1470px;
 
   width: 100%;

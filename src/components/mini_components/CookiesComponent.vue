@@ -41,7 +41,7 @@ const closeCookie = () => {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  position: absolute;
+  position: fixed;
   bottom: 56px;
   left: 136px;
   z-index: 99;

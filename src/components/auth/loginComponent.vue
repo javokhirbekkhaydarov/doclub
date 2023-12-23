@@ -28,7 +28,7 @@
                 </div>
                 <img src="@/assets/icons/down.svg" alt="" />
                 <input
-                  type="text"
+                  type="number"
                   ref="phone"
                   id="phone"
                   @input="handleInput"

@@ -125,7 +125,8 @@
 }
 .model_card {
   display: flex;
-  height: 196px;
+  height: auto;
+  min-height: 196px;
   padding: 32px;
   flex-direction: column;
   justify-content: space-between;

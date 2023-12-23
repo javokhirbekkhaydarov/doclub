@@ -82,7 +82,7 @@
     flex-wrap: nowrap;
     position: sticky;
     z-index: 3;
-  display: flex;
+    display: flex;
     justify-content: center;
     padding-left: 65px;
   }
@@ -148,10 +148,32 @@
     right: 0;
     bottom: 0;
     width: 100%;
-
   }
-  .shadow_image path ,  .shadow_image g {
+  .shadow_image path,
+  .shadow_image g {
     width: 100% !important;
+  }
+}
 
+@media (min-width: 993px) and (max-width: 1299px) {
+  .main_content {
+    display: grid;
+    grid-template-columns: auto ;
+  }}
+@media (min-width: 1300px) and (max-width: 1600px) {
+  .main_content {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .home_center {
+    max-width: 493px;
+  }
+  .your_page_content {
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .recommended_page_body {
+    display: grid;
+    grid-template-columns: auto;
   }
 }
