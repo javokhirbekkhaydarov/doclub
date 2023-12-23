@@ -17,7 +17,7 @@
           <img alt="close" src="@/assets/img/x.svg" style="width: 28px" />
         </div>
       </template>
-      <div class="your_page_card_body center">
+      <div class="your_page_card_body center mt-4">
         <div class="card_btn_primary" @click="openAlert">No</div>
         <div class="card_btn_white" @click="logOut">Yes</div>
       </div>
@@ -37,6 +37,7 @@ const openAlert = () => {
 const logOut = () => {
   localStorage.removeItem("isLogin");
     router.push(`/auth/login`);
+  store.commit("setPopup");
 
 };
 </script>
