@@ -4,16 +4,22 @@ export default createStore({
   state: {
     form: {},
     show: false,
+    date: "",
   },
   getters: {
     show(state) {
       return state.show;
     },
+    date(state) {
+      return state.date;
+    },
   },
   mutations: {
     setShow(state) {
       state.show = !state.show;
-      console.log(state.show, "store");
+    },
+    setDate(state, payload) {
+      state.date = payload;
     },
   },
   actions: {},

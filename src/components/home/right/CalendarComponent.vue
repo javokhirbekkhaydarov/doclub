@@ -9,9 +9,17 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import store from "@/store";
 
 const date = ref(new Date());
+const formattedDate = computed(() => {
+  const options = { day: "numeric", month: "long" };
+  const formatted = date.value.toLocaleDateString("en-US", options);
+  const [month, day] = formatted.split(" ");
+  return `${day} ${month} `;
+});
+store.commit("setDate", formattedDate);
 </script>
 
 <style>
@@ -40,7 +48,6 @@ const date = ref(new Date());
 }
 .dp__calendar .dp__calendar {
   border: 0;
-
 }
 
 .dp__calendar_row {
@@ -49,14 +56,12 @@ const date = ref(new Date());
   /*align-items: flex-start;*/
   flex: 1 0 0;
   margin: 0;
-
 }
 .dp__calendar_item {
   border-right: 1px solid var(--Neutral-300, #e5e5f8);
   border-top: 1px solid var(--Neutral-300, #e5e5f8);
   width: 58px;
   height: 72px;
-
 }
 .dp__range_end,
 .dp__range_start,
@@ -64,8 +69,6 @@ const date = ref(new Date());
   background: var(--Primary-100, #f9f8ff) !important;
   color: var(--primary);
 }
-
-
 
 .dp__active_date::after {
   content: " ";
@@ -96,7 +99,7 @@ const date = ref(new Date());
   line-height: 24px; /* 133.333% */
 }
 .dp__calendar_header_item {
-  color: var(--Neutral-500, #9D9DBB);
+  color: var(--Neutral-500, #9d9dbb);
   text-align: center;
 
   /* Captions/Cap1 - Regular */
@@ -105,12 +108,11 @@ const date = ref(new Date());
   font-style: normal;
   font-weight: 400;
   /*border-top: 1px solid var(--Neutral-300, #E5E5F8);*/
-  border-right: 1px solid var(--Neutral-300, #E5E5F8);
+  border-right: 1px solid var(--Neutral-300, #e5e5f8);
   line-height: 24px; /* 133.333% */
   padding: 24px 0px;
   height: 72px;
   width: 58px !important;
-
 }
 .dp__cell_inner {
   /* Captions/Cap1 - Regular */
@@ -172,5 +174,4 @@ const date = ref(new Date());
   display: flex;
   justify-content: flex-start;
 }
-
 </style>
