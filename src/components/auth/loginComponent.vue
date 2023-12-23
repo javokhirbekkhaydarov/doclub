@@ -28,7 +28,7 @@
                 </div>
                 <img src="@/assets/icons/down.svg" alt="" />
                 <input
-                  type="number"
+                  type="text"
                   ref="phone"
                   id="phone"
                   @input="handleInput"
@@ -191,8 +191,8 @@ const getCodeText = ref(t("get_new_code"));
 const code_didnt_come = ref(t("code_didnt_come"));
 const state = ref("phone");
 const isNewCode = ref(false);
-const countdown = ref(10);
-const initialCountdown = ref(10);
+const countdown = ref(60);
+const initialCountdown = ref(60);
 const timerStarted = ref(false);
 const timerId = ref(0);
 const InputField = ref(false);
